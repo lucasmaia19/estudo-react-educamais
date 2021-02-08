@@ -1,24 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
 
+import './cadastro-atividade/node_modules/primeicons/primeicons.css';
+import './cadastro-atividade/node_modules/primereact/resources/themes/saga-blue/theme.css';
+import './cadastro-atividade/node_modules/primereact/resources/primereact.css';
+import './cadastro-atividade/node_modules/primeflex/primeflex.css';
+
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+  <div className="p-fluid p-col">
+   
+  </div>
+
   );
 }
 
