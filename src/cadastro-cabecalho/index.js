@@ -1,7 +1,7 @@
-import 'primeicons/primeicons.css';
-import 'primereact/resources/themes/saga-blue/theme.css';
-import 'primereact/resources/primereact.css';
-import 'primeflex/primeflex.css';
+// import '../menu/node_modules/primeicons/primeicons.css';
+// import '../menu/node_modules/primereact/resources/themes/saga-blue/theme.css';
+// import '../menu/node_modules/primereact/resources/primereact.css';
+// import '../menu/node_modules/primeflex/primeflex.css';
 
 import { InputText } from 'primereact/inputtext';
 import { FileUpload } from 'primereact/fileupload';
@@ -9,7 +9,7 @@ import {Button} from 'primereact/button';
 import { Calendar } from 'primereact/calendar';
 
 // import React, { useRef } from 'react';
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 
 
 function CadastroCabecalho() {
@@ -19,7 +19,6 @@ function CadastroCabecalho() {
   const onUpload = () => {
     toast.current.show({severity: 'info', summary: 'Success', detail: 'File Uploaded'});
   }
-
 
   return (
 
