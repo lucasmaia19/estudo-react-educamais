@@ -1,11 +1,6 @@
-// import '../menu/node_modules/primeicons/primeicons.css';
-// import '../menu/node_modules/primereact/resources/themes/saga-blue/theme.css';
-// import '../menu/node_modules/primereact/resources/primereact.css';
-// import '../menu/node_modules/primeflex/primeflex.css';
-
 import { InputText } from 'primereact/inputtext';
 import { FileUpload } from 'primereact/fileupload';
-import {Button} from 'primereact/button';
+import { Button } from 'primereact/button';
 import { Calendar } from 'primereact/calendar';
 
 // import React, { useRef } from 'react';
@@ -66,13 +61,9 @@ function CadastroCabecalho() {
       <div className="p-fluid p-formgrid p-grid">
         <div className="p-field p-col-6">
           <FileUpload name="demo[]" url="./upload.php" onUpload={onUpload} multiple accept="image/*" maxFileSize={1000000}
-            emptyTemplate={<p className="p-m-0">Drag and drop files to here to upload.</p>} />
-        </div>
-      </div>
-
-      <div className="p-fluid p-formgrid p-grid">
-        <div className="p-field p-col-6">
-            <Button type="button" label="Salvar"/>
+          showUploadButton="false" chooseLabel="Adicionar" cancelLabel="Cancelar"
+            // emptyTemplate={<p className="p-m-0">Drag and drop files to here to upload.</p>} 
+            />
         </div>
       </div>
 

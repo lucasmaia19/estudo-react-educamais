@@ -15,6 +15,11 @@ function Menu() {
 
     const items = [ 
         {
+            label:'Atividades',
+            icon:'pi pi-check',
+            command: () => {window.location = "/cadastro-atividades"},
+        },
+        {
             label: 'Nova Atividade',
             icon: 'pi pi-fw pi-plus',
             command: () => {window.location = "/cadastro-atividade"},
@@ -24,11 +29,6 @@ function Menu() {
             icon:'pi pi-fw pi-plus',
             command: () => {window.location = "/cadastro-cabecalho"},
         },
-        {
-
-            // label:'Gerenciar Cabeçalho',
-            // icon:'pi pi-cog',
-        } 
     ];
 
     const start = <img alt="logo" src="showcase/images/logo.png" onError={(e) => e.target.src='https://w7.pngwing.com/pngs/923/37/png-transparent-child-happiness-cartoon-happy-kids-comics-food-hand.png'} height="40" className="p-mr-2"></img>;
@@ -45,4 +45,5 @@ function Menu() {
         </div>
     );
 }
+
 export default Menu;
