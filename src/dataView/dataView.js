@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import 'primeicons/primeicons.css';
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.css';
@@ -10,6 +11,14 @@ import './DataViewDemo.css';
 import axios from 'axios';
 
 const TabelaAtividades = () => {
+
+    function converteImagemBase64ParaHtml(imagem) {
+        let novaImagem;
+        novaImagem = "data:image/jpg;base64," + imagem + "";
+
+        return novaImagem;
+    }
+
     const [products, setProducts] = useState(null);
     const [layout, setLayout] = useState('grid');
     const [sortKey, setSortKey] = useState(null);
@@ -20,10 +29,7 @@ const TabelaAtividades = () => {
         {label: 'Price Low to High', value: 'price'},
     ];
 
-    // const productService = new ProductService();
-
     useEffect(() => {
-        // setProducts([]);
         axios.get('http://localhost:8080/atividade').then(response => {
             console.log('response', response);
             
@@ -32,8 +38,7 @@ const TabelaAtividades = () => {
 
             console.log('products', products)
         });
-        // productService.getProductsSmall().then(data => setProducts(data));
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    }, []); 
 
     const onSortChange = (event) => {
         const value = event.value;
@@ -54,7 +59,8 @@ const TabelaAtividades = () => {
         return (
             <div className="p-col-12">
                 <div className="product-list-item">
-                    <img src={`${data.arquivo}`} onError={(e) => e.target.src='https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} alt={data.name} />
+                    {/* <img src={`${data.arquivo}`} onError={(e) => e.target.src=converteImagemBase64ParaHtml(data.arquivo)} alt={data.name} style={{width: 120, height: 150}} /> */}
+                    <img src={`${converteImagemBase64ParaHtml(data.arquivo)}`}  style={{width: 120, height: 150}}/>
                     <div className="product-list-detail">
                         <div className="product-name">{data.nome}</div>
                         <div className="product-description">{data.description}</div>
@@ -83,7 +89,8 @@ const TabelaAtividades = () => {
                         {/* <span className={`product-badge status-${data.inventoryStatus.toLowerCase()}`}>{data.inventoryStatus}</span> */}
                     </div>
                     <div className="product-grid-item-content">
-                    <img src={`showcase/demo/images/product/${data.image}`} onError={(e) => e.target.src='https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} alt={data.name} />
+                    {/* <img src={`${data.arquivo}`} onError={(e) => e.target.src=converteImagemBase64ParaHtml(data.arquivo)} alt={data.name} /> */}
+                    <img src={`${converteImagemBase64ParaHtml(data.arquivo)}`} />
                         <div className="product-name">{data.enunciado}</div>
                         <div className="product-description">{data.description}</div>
                         {/* <Rating value={data.rating} readOnly cancel={false}></Rating> */}

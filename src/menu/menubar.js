@@ -17,7 +17,7 @@ function Menu() {
         {
             label:'Atividades',
             icon:'pi pi-check',
-            command: () => {window.location = "/cadastro-atividades"},
+            command: () => {window.location = "/tabela-atividades"},
         },
         {
             label: 'Nova Atividade',
