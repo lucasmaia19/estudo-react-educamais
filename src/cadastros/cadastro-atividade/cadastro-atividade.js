@@ -19,10 +19,10 @@ const InitialValue = {
   arquivo: ''
 }
 
-//   const MultSelecFe = {
-//   nome: '',
-//   code: ''
-// }
+  const MultSelecFe = {
+  nome: '',
+  code: ''
+}
 
 const apiUploadUrl = 'http://localhost:8080/atividade/upload-com-dados';
 
@@ -55,23 +55,26 @@ const CadastroAtividade = () => {
 
   // const faixaEtariaList = new Array<MultSelecFe>();
 
-  const faixaEtariaList = [{}];
+  const [faixaEtariaList, setFaixaEtariaList] = useState([])
+
+  // const faixaEtariaList = [{}];
 
   const cadastroService = new CadastroAtividadeService();
 
   axios.get('http://localhost:8080/atividade/faixa-etaria')
 		.then((response) => {
-      for (var item of response) {
+      console.log(response)
+      for (let item of response.data) {
+
           const dropDownItem = { name: '[' + item.codigo + '] ' + item.descricao, code: item.id }
           faixaEtariaList.push(dropDownItem);
-          console.log('faixaEtariaList', faixaEtariaList)
+          console.log('faixaEtariaList', dropDownItem)
+          // const faixaEtaria = response.data
+          // console.log('faixaEtaria', faixaEtaria)
+          // faixaEtariaList.push(item)
+          // console.log('faixaEtariaList', faixaEtariaList)
+          // return faixaEtariaList
         }
-        // const faixaEtaria = response.data
-        // console.log('faixaEtaria', faixaEtaria)
-        // faixaEtaria.push(faixaEtariaList)
-        // // faixaEtariaList = faixaEtaria
-        // console.log('faixaEtariaList', faixaEtariaList)
-        // return faixaEtariaList
       })
 
   // Função de uploaud
@@ -122,8 +125,8 @@ const CadastroAtividade = () => {
         <h5>Faixa Etaria</h5>
         <div className="p-fluid p-formgrid p-grid">
           <div className="p-field p-col-6">
-            <MultiSelect  options={faixaEtariaList} onChange={(e) => 
-            setSelectedCities2(e.value)} optionLabel="name" placeholder="Select a City" display="chip"
+            <MultiSelect value={faixaEtariaList} options={faixaEtariaList} onChange={(e) => 
+            setFaixaEtariaList(e.name)} optionLabel="name" placeholder="Select a City" display="chip"
             name="faixaEtaria"
             />
           </div>
